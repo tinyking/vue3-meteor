@@ -7,25 +7,22 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex';
+	import { computed } from 'vue';
+	import { useStore } from 'vuex';
 
 	export default {
 		name: 'HelloWorld',
 		props: {
 			msg: String
 		},
-		data() {
+		setup() {
+			const store = useStore();
 			return {
-				// count: 0
+				count: computed(() => store.getters.count),
+				handleClick: () => {
+					store.dispatch('increment');
+				}
 			};
-		},
-		computed: {
-			...mapGetters(['count'])
-		},
-		methods: {
-			handleClick() {
-				this.$store.dispatch('increment');
-			}
 		}
 	};
 </script>
