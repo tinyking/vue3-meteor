@@ -1,6 +1,11 @@
 <template>
 	<h1>{{ msg }}</h1>
-	<button @click="handleClick">count is: {{ count }}</button>
+	<button
+		class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus-within:bg-blue-50"
+		@click="handleClick"
+	>
+		count is: {{ count }}
+	</button>
 	<p>
 		Edit <code>components/HelloWorld.vue</code> to test hot module replacement.
 	</p>
@@ -15,7 +20,7 @@
 		props: {
 			msg: String
 		},
-		setup(props) {
+		setup() {
 			const store = useStore();
 
 			return {
